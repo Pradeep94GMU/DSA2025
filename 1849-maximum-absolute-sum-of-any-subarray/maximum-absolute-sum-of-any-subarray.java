@@ -12,22 +12,25 @@ class Solution {
             int totTillMin = cummSumMin + nums[i];
 
             if(currEle >= totTillMax){
-                res = Math.max(res, Math.abs(currEle));
                 cummSumMax = currEle;
             }else{
-                res = Math.max(res, Math.abs(totTillMax));
+                
                 cummSumMax += currEle;
 
             }
 
             if(currEle <= totTillMin){
-                res = Math.max(res, Math.abs(currEle));
+                
                 cummSumMin = currEle;
             }else{
-                res = Math.max(res, Math.abs(totTillMin));
+                
                 cummSumMin += currEle;
 
             }
+            res = Math.max(res, Math.abs(currEle));
+            res = Math.max(res, Math.abs(totTillMax));
+            res = Math.max(res, Math.abs(totTillMin));
+            //res = Math.max(res, Math.abs(currEle));
 
             // System.out.println(nums[i]+" cummS "+totTillMax);
             // System.out.println(nums[i]+" cummS "+totTillMin);
