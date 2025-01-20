@@ -27,9 +27,9 @@ class Solution {
                 cummSumMin += currEle;
 
             }
-            res = Math.max(res, Math.abs(currEle));
-            res = Math.max(res, Math.abs(totTillMax));
-            res = Math.max(res, Math.abs(totTillMin));
+            res = Math.max(Math.max( Math.max(res, Math.abs(totTillMin)), Math.abs(totTillMax)),Math.abs(currEle) );
+            // res = Math.max(res, Math.abs(totTillMax));
+            // res =;
             //res = Math.max(res, Math.abs(currEle));
 
             // System.out.println(nums[i]+" cummS "+totTillMax);
