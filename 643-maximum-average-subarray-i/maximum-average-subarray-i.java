@@ -16,7 +16,7 @@ class Solution {
                 if(j - i + 1 == k){
                     // System.out.println(sum+" "+ (j - i + 1));
                     res = Math.max(res, (sum / (j - i + 1)));
-                    System.out.println(res);
+                    //System.out.println(res);
                 }
                 j++;
             }else{
