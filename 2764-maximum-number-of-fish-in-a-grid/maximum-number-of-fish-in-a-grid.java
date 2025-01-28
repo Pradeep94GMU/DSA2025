@@ -5,12 +5,11 @@ class Solution {
     public int findMaxFish(int[][] grid) {
          m = grid.length;
          n = grid[0].length;
-        boolean[][] vis = new boolean[m][n];
         int maxFish = 0;
 
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-                if(!vis[i][j] && grid[i][j] != 0){
+                if(grid[i][j] != 0){
                     int fish = findTotalFish(grid, i, j);
                     maxFish = Math.max(maxFish, fish);
                 }
@@ -23,8 +22,7 @@ class Solution {
 
     private int findTotalFish(int[][] grid, int i, int j){
         
-        int fish = 0;
-        fish += grid[i][j];
+        int fish = grid[i][j];
         grid[i][j] = 0;
         for(int[] dir: dirs){
             int nr = i + dir[0];
