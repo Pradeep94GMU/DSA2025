@@ -1,39 +1,39 @@
 class Solution {
     public boolean check(int[] nums) {
+        // int min = nums[0];
+        // int i = 0;
 
-        //i need to rotate this numbers 
-        int[] sorted = nums.clone();
-        Arrays.sort(sorted);
+        // for( i = 1; i < nums.length; i++){
+        //     if(nums[i] > nums[i - 1]) break;
+        // }
 
-        if(checkSame(nums, sorted)) return true;
+        // System.out.println(i);
 
-        for(int i = 0; i < nums.length - 1; i++){
-            if(nums[i] != nums[i + 1]){
-                //i + 1 wala index se last tak mujhe swap krna hai naye aarray me
-                int[] swapped = new int[nums.length];
-                int start = 0;
-                for(int idx = i + 1; idx < nums.length; idx++){
-                    swapped[start++] = nums[idx];
+        // for(int j = i; j < nums.length; j++){
+        //     System.out.println(nums[j]+" "+nums[j - 1]);
+        //     if(nums[j] < nums[j - 1] && nums[j] > min) return false;
+        // }
+        // if(nums[nums.length - 1] > min) return false;
+        // System.out.println("HUHUH");
+
+
+        // return true;
+        boolean flag = false;
+        for (int i = 1; i < nums.length; i++){
+            if (nums[i] < nums[i-1]){
+                if (flag == true){
+                    return false;
                 }
-                for(int idx = 0; idx <= i; idx++){
-                    swapped[start++] = nums[idx];
-                }
-                if(checkSame(swapped, sorted)) return true;
+                flag = true;
             }
         }
 
-        return false;
-        
-    }
-
-
-    private boolean checkSame(int[] a, int[] b){
-        System.out.println(Arrays.toString(a));
-        System.out.println(Arrays.toString(b));
-        for(int i = 0; i < a.length; i++){
-            if(a[i] != b[i]) return false;
+        if (flag == false){
+            return true;
+        }else{
+            return nums[nums.length-1] <= nums[0] ? true : false;
         }
 
-        return true;
+        
     }
 }
