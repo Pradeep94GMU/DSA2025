@@ -2,8 +2,6 @@ class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
         win_sum = nums[0]
         res = nums[0]
-        # if len(nums) == 1:
-        #     return res
 
         for i in range(1,len(nums)):
             if nums[i] <= nums[i-1]:
@@ -11,5 +9,6 @@ class Solution:
             else:
                 win_sum += nums[i]
             res = max(res, win_sum)
+            
         return res
             
