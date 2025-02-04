@@ -10,10 +10,8 @@ class Solution:
             res = max(res, win_sum)
             if nums[i] <= nums[i-1]:
                 win_sum = nums[i]
-                res = max(res, win_sum)
-                continue
-
-            win_sum += nums[i]
+            else:
+                win_sum += nums[i]
             res = max(res, win_sum)
         return res
             
